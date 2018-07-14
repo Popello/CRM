@@ -48,6 +48,9 @@ public class Order {
     @JoinColumn(name = "client")
     private Client client;
 
+    @OneToOne
+    @JoinColumn(name = "task")
+    private Task task;
 
 
     public Order(String title, String description, BigDecimal value, Date created, Date lastModified, Date paid, Date send, boolean archive) {
@@ -150,5 +153,13 @@ public class Order {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
 }

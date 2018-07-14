@@ -39,7 +39,8 @@ public class Task {
     @JoinColumn(name = "user")
     private User user;
 
-
+    @OneToOne(mappedBy = "task")
+    private Order order;
 
     public Task(String title, String description, Date created, Date lastModified, boolean archive) {
         super();
@@ -114,5 +115,13 @@ public class Task {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
