@@ -1,0 +1,11 @@
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/config/AppConfig.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/entity/User.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/app/AppInitializer.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/entity/Client.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/entity/Task.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/repository/OrderRepository.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/repository/ClientRepository.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/repository/UserRepository.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/controller/HomeController.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/repository/TaskRepository.java
+/home/mikeubu/workspace/CRM/src/main/java/pl/crm/entity/Order.java

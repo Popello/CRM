@@ -23,7 +23,7 @@ public class Order {
 
     @Column
     @NotNull
-    private BigDecimal value;
+    private double value;
 
     @Column
     private Date created;
@@ -53,7 +53,7 @@ public class Order {
     private Task task;
 
 
-    public Order(String title, String description, BigDecimal value, Date created, Date lastModified, Date paid, Date send, boolean archive) {
+    public Order(String title, String description, double value, Date created, Date lastModified, Date paid, Date send, boolean archive) {
         super();
         this.title = title;
         this.description = description;
@@ -91,11 +91,11 @@ public class Order {
         this.description = description;
     }
 
-    public BigDecimal getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

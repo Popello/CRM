@@ -1,0 +1,11 @@
+pl/crm/entity/User.class
+pl/crm/app/AppInitializer.class
+pl/crm/config/AppConfig.class
+pl/crm/repository/OrderRepository.class
+pl/crm/entity/Client.class
+pl/crm/entity/Order.class
+pl/crm/controller/HomeController.class
+pl/crm/entity/Task.class
+pl/crm/repository/TaskRepository.class
+pl/crm/repository/UserRepository.class
+pl/crm/repository/ClientRepository.class

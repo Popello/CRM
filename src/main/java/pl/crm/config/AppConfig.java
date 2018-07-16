@@ -16,15 +16,15 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"pl.crm"})
+@ComponentScan(basePackages = {"pl.crm", "pl.crm.repository", "pl.crm.entity", "pl.crm.controller"})
 @EnableTransactionManagement(proxyTargetClass = true)
 @EnableJpaRepositories(basePackages = "pl.crm.repository")
 public class AppConfig {
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
-        LocalEntityManagerFactoryBean lemfb = new LocalEntityManagerFactoryBean();
-        lemfb.setPersistenceUnitName("PersistenceUnit");
-        return lemfb;
+        LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
+        emfb.setPersistenceUnitName("PersistenceUnit");
+        return emfb;
     }
 
     @Bean

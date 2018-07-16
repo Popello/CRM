@@ -12,11 +12,11 @@ import pl.crm.config.AppConfig;
 
 public class AppInitializer implements WebApplicationInitializer {
 
-    public void onStartup(ServletContext servletContext) throws ServletException {
+    public void onStartup(ServletContext container) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(AppConfig.class);
-        ctx.setServletContext(servletContext);
-        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
+        ctx.setServletContext(container);
+        ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
     }
