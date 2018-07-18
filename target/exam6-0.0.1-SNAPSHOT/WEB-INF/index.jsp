@@ -17,9 +17,10 @@
 
 <body>
 <ul>
-    <li><a href="/qwerty">qwerty</a></li>
-    <li><a href="/uiop">uiop</a></li>
-    <li><a href="/asdfgh">asdfgh</a></li>
+    <li><a href="/users/list">Uzytkownicy</a></li>
+    <li><a href="/orders/list">Zamowienia</a></li>
+    <li><a href="/tasks/list">Zadania</a></li>
+    <li><a href="/clients/list">Klienci</a></li>
 </ul>
 
 
