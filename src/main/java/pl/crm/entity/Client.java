@@ -27,7 +27,7 @@ public class Client {
     @NotNull
     private String adress;
 
-    @Column
+    @Column(unique = true)
     @NotNull
     private long nip;
 

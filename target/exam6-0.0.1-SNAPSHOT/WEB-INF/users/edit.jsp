@@ -22,9 +22,6 @@
     Nazwa<form:input path="name" />
     <form:errors path="name" cssClass="error"/>
     <br>
-    Haslo<form:password path="password" />
-    <form:errors path="password" cssClass="error"/>
-    <br>
     Imie<form:input path="firstName" />
     <form:errors path="firstName" cssClass="error"/>
     <br>

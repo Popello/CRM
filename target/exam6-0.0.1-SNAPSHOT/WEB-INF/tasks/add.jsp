@@ -7,10 +7,42 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <title>Title</title>
+    <title>Dodaj Zadanie</title>
+    <style>
+        .error {
+            color: red
+        }
+    </style>
 </head>
 <body>
-
+<form:form action="/tasks/add" method="post"
+           modelAttribute="task">
+    Tytuł<form:input path="title" />
+    <form:errors path="title" cssClass="error"/>
+    <br>
+    Opis<form:input path="description" />
+    <form:errors path="description" cssClass="error"/>
+    <br>
+    Typ <form:select path="status">
+    <form:option value="1" label="Zadanie" />
+    <form:option value="2" label="Zamówienie" />
+    </form:select>
+    <br>
+    Operator:
+    <form:select itemValue="id" itemLabel="name" path="user.id"
+                 items="${users}" />
+    <br>
+    Klient:
+    <form:select itemValue="id" itemLabel="company" path="client.id"
+                 items="${clients}" />
+    <br>
+    <input type="submit" value="Dodaj">
+</form:form>
+<form action="/tasks/list">
+    <input type="submit" value="Anuluj" />
+</form>
 </body>
 </html>

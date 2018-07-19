@@ -36,7 +36,7 @@
     E-mail<form:input path="email" />
     <form:errors path="email" cssClass="error"/>
     <br>
-    category<form:select path="category">
+    Pozycja <form:select path="category">
         <form:option value="3" label="Pracownik" />
         <form:option value="2" label="Manager" />
         <form:option value="1" label="Boss" />
