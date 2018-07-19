@@ -17,6 +17,12 @@
     Firma<form:input path="company" />
     <form:errors path="company" cssClass="error"/>
     <br>
+    NIP<form:input path="nip" />
+    <form:errors path="nip" cssClass="error"/>
+    <br>
+    Adres<form:input path="adress" />
+    <form:errors path="adress" cssClass="error"/>
+    <br>
     Imie i Nazwisko<form:input path="name" />
     <form:errors path="name" cssClass="error"/>
     <br>
@@ -28,7 +34,7 @@
     <br>
     <input type="submit" value="Zapisz">
 </form:form>
-<form action="/clientss/list">
+<form action="/clients/list">
     <input type="submit" value="Anuluj" />
 </form>
 </body>

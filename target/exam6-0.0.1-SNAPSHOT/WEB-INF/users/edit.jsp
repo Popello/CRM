@@ -40,10 +40,10 @@
     <form:option value="1" label="Boss" />
 </form:select>
     <br>
-    <input type="submit" value="zmien">
+    <input type="submit" value="Zapisz">
 </form:form>
 <form action="/users/list">
-    <input type="submit" value="Powrot" />
+    <input type="submit" value="Anuluj" />
 </form>
 
 </body>

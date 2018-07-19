@@ -10,12 +10,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <title>Title</title>
+    <title>Klienci</title>
 </head>
 <body>
 <table border=1>
     <tr>
         <th>Firma</th>
+        <th>NIP</th>
+        <th>Adres</th>
         <th>Imie i nazwisko</th>
         <th>Telefon</th>
         <th>Email</th>
@@ -24,6 +26,8 @@
     <c:forEach items="${clients}" var="item">
         <tr>
             <td>${item.company}</td>
+            <td>${item.nip}</td>
+            <td>${item.adress}</td>
             <td>${item.name}</td>
             <td>${item.telephone}</td>
             <td>${item.email}</td>
@@ -36,10 +40,10 @@
 </table>
 <br>
 <form action="add">
-    <input type="submit" value="dodaj Klienta" />
+    <input type="submit" value="Dodaj Klienta" />
 </form>
 <form action="/home">
-    <input type="submit" value="powort do strony glownej" />
+    <input type="submit" value="Powort do strony glownej" />
 </form>
 </body>
 </html>

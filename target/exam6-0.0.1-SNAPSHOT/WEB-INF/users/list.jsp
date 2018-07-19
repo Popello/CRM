@@ -51,10 +51,10 @@
 </table>
 <br>
 <form action="add">
-    <input type="submit" value="dodaj Uzytkownika" />
+    <input type="submit" value="Dodaj Uzytkownika" />
 </form>
 <form action="/home">
-    <input type="submit" value="powort do strony glownej" />
+    <input type="submit" value="Powort do strony glownej" />
 </form>
 </body>
 </html>

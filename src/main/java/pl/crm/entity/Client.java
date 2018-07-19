@@ -24,6 +24,14 @@ public class Client {
     private String name;
 
     @Column
+    @NotNull
+    private String adress;
+
+    @Column
+    @NotNull
+    private long nip;
+
+    @Column
     @Email
     private String email;
 
@@ -34,13 +42,14 @@ public class Client {
     private List<Task> tasks;
 
 
-    public Client(String company, String name, String email, int telephone, List<Task> tasks) {
+    public Client(String company, String name, String adress, long nip, String email, int telephone) {
         super();
         this.company = company;
         this.name = name;
+        this.adress = adress;
+        this.nip = nip;
         this.email = email;
         this.telephone = telephone;
-        this.tasks = tasks;
     }
 
     public Client() {
@@ -62,6 +71,22 @@ public class Client {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public long getNip() {
+        return nip;
+    }
+
+    public void setNip(long nip) {
+        this.nip = nip;
     }
 
     public String getName() {
@@ -95,4 +120,6 @@ public class Client {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
+
 }

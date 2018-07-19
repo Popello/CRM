@@ -45,7 +45,7 @@
     <input type="submit" value="Dodaj">
 </form:form>
 <form action="/users/list">
-    <input type="submit" value="Powrot" />
+    <input type="submit" value="Anuluj" />
 </form>
 
 </body>
