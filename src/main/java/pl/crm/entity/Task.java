@@ -28,8 +28,14 @@ public class Task {
     private Date lastModified;
 
     @Column
-    private boolean archive;
+    @NotNull
+    private int status;
 
+    @Column
+    private Date paid;
+
+    @Column
+    private Date send;
 
     @ManyToOne
     @JoinColumn(name = "client")
@@ -39,23 +45,24 @@ public class Task {
     @JoinColumn(name = "user")
     private User user;
 
-    @OneToOne(mappedBy = "task")
-    private Order order;
 
-    public Task(String title, String description, Date created, Date lastModified, boolean archive) {
-        super();
+    public Task(String title, String description, Date created, Date lastModified, int status, Date paid, Date send) {
         this.title = title;
         this.description = description;
         this.created = created;
         this.lastModified = lastModified;
-        this.archive = archive;
+        this.status = status;
+        this.paid = paid;
+        this.send = send;
     }
 
     public Task() {
         super();
     }
 
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -93,12 +100,32 @@ public class Task {
         this.lastModified = lastModified;
     }
 
-    public boolean isArchive() {
-        return archive;
+    public int isStatus() {
+        return status;
     }
 
-    public void setArchive(boolean archive) {
-        this.archive = archive;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public Date getPaid() {
+        return paid;
+    }
+
+    public void setPaid(Date paid) {
+        this.paid = paid;
+    }
+
+    public Date getSend() {
+        return send;
+    }
+
+    public void setSend(Date send) {
+        this.send = send;
     }
 
     public Client getClient() {
@@ -117,11 +144,5 @@ public class Task {
         this.user = user;
     }
 
-    public Order getOrder() {
-        return order;
-    }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 }

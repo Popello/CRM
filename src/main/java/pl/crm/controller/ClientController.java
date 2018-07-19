@@ -11,4 +11,5 @@ import org.springframework.web.context.WebApplicationContext;
         proxyMode = ScopedProxyMode.TARGET_CLASS)
 @RequestMapping("/clients")
 public class ClientController {
+
 }

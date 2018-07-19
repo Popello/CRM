@@ -46,7 +46,7 @@ public class UserController {
         }else {
             userRepository.save(user);
             model.addAttribute("users", userRepository.findAll());
-            return "users/list";
+            return "redirect:/users/list";
         }
     }
 

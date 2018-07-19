@@ -34,19 +34,14 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Task> tasks;
 
-    @OneToMany(mappedBy = "client")
-    private List<Order> orders;
 
-
-
-    public Client(String company, String name, String email, int telephone, List<Task> tasks, List<Order> orders) {
+    public Client(String company, String name, String email, int telephone, List<Task> tasks) {
         super();
         this.company = company;
         this.name = name;
         this.email = email;
         this.telephone = telephone;
         this.tasks = tasks;
-        this.orders = orders;
     }
 
     public Client() {
@@ -96,13 +91,5 @@ public class Client {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
     }
 }

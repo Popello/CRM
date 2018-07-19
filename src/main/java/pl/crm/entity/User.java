@@ -36,12 +36,8 @@ public class User {
     private String email;
 
 
-
     @OneToMany(mappedBy = "user")
     private List<Task> tasks;
-
-    @OneToMany(mappedBy = "user")
-    private List<Order> orders;
 
 
     public User(String name, String password, String firstName, String lastName, String email) {
@@ -112,13 +108,5 @@ public class User {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
     }
 }

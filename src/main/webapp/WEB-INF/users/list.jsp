@@ -16,23 +16,27 @@
 <body>
 <table border=1>
     <tr>
+        <th>Nazwa</th>
         <th>Imie</th>
         <th>Nazwisko</th>
         <th>Email</th>
-        <th>Akcja</th>
     </tr>
     <c:forEach items="${users}" var="item">
         <tr>
+            <td>${item.name}</td>
             <td>${item.firstName}</td>
             <td>${item.lastName}</td>
             <td>${item.email}</td>
             <td><a href="/users/edit/${item.id}">Edit</a> <a href="/users/delete/${item.id}">Delete</a></td>
         </tr>
     </c:forEach>
-    <br>
-    <a href="add">dodaj Uzytkownika</a>
-    <br>
-    <a href="/home">powrot do strony glownej</a>
 </table>
+<br>
+<form action="add">
+    <input type="submit" value="dodaj Uzytkownika" />
+</form>
+<form action="/home">
+    <input type="submit" value="powort do strony glownej" />
+</form>
 </body>
 </html>
