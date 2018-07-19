@@ -28,7 +28,6 @@ public class Client {
     private String email;
 
     @Column
-    @NotNull
     private int telephone;
 
     @OneToMany(mappedBy = "client")
@@ -51,6 +50,10 @@ public class Client {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCompany() {

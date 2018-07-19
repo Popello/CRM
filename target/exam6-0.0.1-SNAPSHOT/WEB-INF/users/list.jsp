@@ -20,6 +20,8 @@
         <th>Imie</th>
         <th>Nazwisko</th>
         <th>Email</th>
+        <th>Rola</th>
+        <th>Opcje</th>
     </tr>
     <c:forEach items="${users}" var="item">
         <tr>
@@ -27,7 +29,23 @@
             <td>${item.firstName}</td>
             <td>${item.lastName}</td>
             <td>${item.email}</td>
-            <td><a href="/users/edit/${item.id}">Edit</a> <a href="/users/delete/${item.id}">Delete</a></td>
+            <td><c:if test="${item.category == 0}">
+                    Admin
+                </c:if>
+                <c:if test="${item.category == 1}">
+                    Boss
+                </c:if>
+                <c:if test="${item.category == 2}">
+                    Manager
+                </c:if>
+                <c:if test="${item.category == 3}">
+                    Pracownik
+                </c:if>
+            </td>
+            <td>
+                <input type="button" onclick="location.href='/users/edit/${item.id}';" value="Edytuj" />
+                <input type="button" onclick="location.href='/users/delete/${item.id}';" value="Usun" />
+            </td>
         </tr>
     </c:forEach>
 </table>

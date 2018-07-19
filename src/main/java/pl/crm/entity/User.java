@@ -35,18 +35,22 @@ public class User {
     @Email
     private String email;
 
+    @Column
+    @NotNull
+    private int category;
 
     @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 
 
-    public User(String name, String password, String firstName, String lastName, String email) {
+    public User(String name, String password, String firstName, String lastName, String email, int category) {
         super();
         this.name = name;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.category = category;
     }
 
     public User() {
@@ -100,6 +104,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 
     public List<Task> getTasks() {

@@ -9,7 +9,7 @@
 <html>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <head>
-    <title>Add User</title>
+    <title>Dodaj Uzytkownika</title>
     <style>
         .error {
             color: red
@@ -24,22 +24,28 @@
     Nazwa<form:input path="name" />
     <form:errors path="name" cssClass="error"/>
     <br>
-    Haslo<form:input path="password" />
+    Haslo<form:password path="password" />
     <form:errors path="password" cssClass="error"/>
     <br>
     Imie<form:input path="firstName" />
     <form:errors path="firstName" cssClass="error"/>
     <br>
     Nazwisko<form:input path="lastName" />
-    <form:errors path="firstName" cssClass="error"/>
+    <form:errors path="lastName" cssClass="error"/>
     <br>
     E-mail<form:input path="email" />
-    <form:errors path="firstName" cssClass="error"/>
+    <form:errors path="email" cssClass="error"/>
+    <br>
+    category<form:select path="category">
+        <form:option value="3" label="Pracownik" />
+        <form:option value="2" label="Manager" />
+        <form:option value="1" label="Boss" />
+    </form:select>
     <br>
     <input type="submit" value="Dodaj">
 </form:form>
 <form action="/users/list">
-    <input type="submit" value="Powrot" />
+    <input type="submit" value="Anuluj" />
 </form>
 
 </body>
