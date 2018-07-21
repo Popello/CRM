@@ -1,6 +1,7 @@
 package pl.crm.entity;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,27 +17,27 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    @NotNull
+    @NotBlank
     private String name;
 
     @Column
-    @NotNull
+    @NotBlank
     private String password;
 
     @Column
-    @NotNull
+    @NotBlank
     private String firstName;
 
     @Column
-    @NotNull
+    @NotBlank
     private String lastName;
 
     @Column
     @Email
+    @NotBlank
     private String email;
 
     @Column
-    @NotNull
     private int category;
 
     @OneToMany(mappedBy = "user")

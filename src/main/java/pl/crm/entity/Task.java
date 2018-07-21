@@ -1,5 +1,7 @@
 package pl.crm.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -14,11 +16,11 @@ public class Task {
     private Long id;
 
     @Column
-    @NotNull
+    @NotBlank
     private String title;
 
     @Column
-    @NotNull
+    @NotBlank
     private String description;
 
     @Column
@@ -28,7 +30,7 @@ public class Task {
     private Date lastModified;
 
     @Column
-    @NotNull
+    @NotBlank
     private int status;
 
     @Column

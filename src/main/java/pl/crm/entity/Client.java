@@ -1,6 +1,7 @@
 package pl.crm.entity;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,19 +17,19 @@ public class Client {
     private Long id;
 
     @Column
-    @NotNull
+    @NotBlank
     private String company;
 
     @Column
-    @NotNull
+    @NotBlank
     private String name;
 
     @Column
-    @NotNull
+    @NotBlank
     private String adress;
 
     @Column(unique = true)
-    @NotNull
+    @NotBlank
     private long nip;
 
     @Column

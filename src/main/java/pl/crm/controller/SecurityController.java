@@ -23,11 +23,11 @@ public class SecurityController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login")
     public String login(Model model, HttpSession session) {
         if (SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
                 && !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
-            return "redirect:/";
+            return "redirect:/home";
         }
         model.addAttribute("user", new User());
         session.setAttribute("dateTimeFormatter", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));

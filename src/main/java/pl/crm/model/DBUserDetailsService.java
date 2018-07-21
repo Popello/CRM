@@ -15,12 +15,12 @@ public class DBUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        pl.crm.entity.User user = userRepository.findByName(username);
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+        pl.crm.entity.User user = userRepository.findByName(name);
         UserDetails userDetails = User.builder()
                 .username(user.getName())
                 .password(user.getPassword())
-                .roles(String.valueOf(user.getCategory()))
+                .roles(/*String.valueOf(user.getCategory())*/)
                 .build();
         return userDetails;
     }

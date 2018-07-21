@@ -34,13 +34,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 .usernameParameter("name")
                 .passwordParameter("password")
+                .defaultSuccessUrl("/home")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .invalidateHttpSession(true)
                 .logoutSuccessUrl("/login?loggedout")
                 .and()
-                .httpBasic();
+                .httpBasic()
+        ;
     }
 
     @Bean
