@@ -14,6 +14,7 @@ import pl.crm.repository.TaskRepository;
 import pl.crm.repository.UserRepository;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 
 @Controller
 @Scope(value = WebApplicationContext.SCOPE_SESSION,
@@ -54,6 +55,8 @@ public class TaskController {
         if(result.hasErrors()) {
             return "tasks/add";
         }else {
+            task.setCreated(LocalDateTime.now());
+            task.setLastModified(LocalDateTime.now());
             taskRepository.save(task);
             model.addAttribute("tasks", taskRepository.findAll());
             model.addAttribute("users", userRepository.findAll());
@@ -73,6 +76,7 @@ public class TaskController {
     @PostMapping("/edit/{id}")
     public String editTask(@ModelAttribute Task task, @PathVariable Long id, Model model) {
         task.setId(id);
+        task.setLastModified(LocalDateTime.now());
         taskRepository.save(task);
         model.addAttribute("tasks", taskRepository.findAll());
         return "redirect:/tasks/list";

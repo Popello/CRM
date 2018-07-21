@@ -55,6 +55,12 @@
         <br>
         <form:input path="lastName" placeholder="Wprowadź Nazwisko"/>
         <br>
+        <form:select path="category">
+            <form:option value="3" label="Pracownik" />
+            <form:option value="2" label="Manager" />
+            <form:option value="1" label="Boss" />
+        </form:select>
+        <br>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="submit" value="Zarejestruj">
 

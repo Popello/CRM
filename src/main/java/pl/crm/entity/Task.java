@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -24,20 +25,19 @@ public class Task {
     private String description;
 
     @Column
-    private Date created;
+    private LocalDateTime created;
 
     @Column
-    private Date lastModified;
+    private LocalDateTime lastModified;
 
     @Column
-    @NotBlank
     private int status;
 
     @Column
-    private Date paid;
+    private LocalDateTime paid;
 
     @Column
-    private Date send;
+    private LocalDateTime send;
 
     @ManyToOne
     @JoinColumn(name = "client")
@@ -48,7 +48,7 @@ public class Task {
     private User user;
 
 
-    public Task(String title, String description, Date created, Date lastModified, int status, Date paid, Date send) {
+    public Task(String title, String description, LocalDateTime created, LocalDateTime lastModified, int status, LocalDateTime paid, LocalDateTime send) {
         this.title = title;
         this.description = description;
         this.created = created;
@@ -86,19 +86,19 @@ public class Task {
         this.description = description;
     }
 
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
-    public Date getLastModified() {
+    public LocalDateTime getLastModified() {
         return lastModified;
     }
 
-    public void setLastModified(Date lastModified) {
+    public void setLastModified(LocalDateTime lastModified) {
         this.lastModified = lastModified;
     }
 
@@ -114,19 +114,19 @@ public class Task {
         return status;
     }
 
-    public Date getPaid() {
+    public LocalDateTime getPaid() {
         return paid;
     }
 
-    public void setPaid(Date paid) {
+    public void setPaid(LocalDateTime paid) {
         this.paid = paid;
     }
 
-    public Date getSend() {
+    public LocalDateTime getSend() {
         return send;
     }
 
-    public void setSend(Date send) {
+    public void setSend(LocalDateTime send) {
         this.send = send;
     }
 
