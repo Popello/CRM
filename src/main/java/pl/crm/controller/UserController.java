@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 import pl.crm.entity.User;
 import pl.crm.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.Valid;
 
@@ -26,6 +27,10 @@ public class UserController {
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @GetMapping("/list")
     public String getAllUsersGet(Model model) {
@@ -44,6 +49,7 @@ public class UserController {
         if(result.hasErrors()) {
             return "users/add";
         }else {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepository.save(user);
             model.addAttribute("users", userRepository.findAll());
             return "redirect:/users/list";

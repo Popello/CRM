@@ -70,12 +70,17 @@ public class TaskController {
         model.addAttribute("task", taskRepository.findOne(id));
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("clients", clientRepository.findAll());
+        System.out.println("___________________________________________");
+        System.out.println(taskRepository.findOne(id).getCreated());
+        System.out.println("___________________________________________");
         return "/tasks/edit";
     }
 
     @PostMapping("/edit/{id}")
     public String editTask(@ModelAttribute Task task, @PathVariable Long id, Model model) {
-        task.setId(id);
+        System.out.println("___________________________________________");
+        System.out.println(task.getCreated());
+        System.out.println("_______________________________________");
         task.setLastModified(LocalDateTime.now());
         taskRepository.save(task);
         model.addAttribute("tasks", taskRepository.findAll());

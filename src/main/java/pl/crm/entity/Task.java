@@ -1,5 +1,6 @@
 package pl.crm.entity;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tasks")
-
+@DynamicUpdate
 public class Task {
 
     @Id

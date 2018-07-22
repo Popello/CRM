@@ -40,9 +40,12 @@
                  items="${clients}" />
     <br>
     <input type="submit" value="Zapisz">
-</form:form>
-<form action="/tasks/list">
-    <input type="submit" value="Anuluj" />
-</form>
-</body>
-</html>
+
+     <form:hidden path="created" />
+
+ </form:form>
+ <form action="/tasks/list">
+     <input type="submit" value="Anuluj" />
+ </form>
+ </body>
+ </html>
