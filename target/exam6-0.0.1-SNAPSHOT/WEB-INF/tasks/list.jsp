@@ -50,28 +50,28 @@
             <input type="button" onclick="location.href='/tasks/pay/${item.id}';" value="Akceptuj" />
             </c:if>
         </td>
-            <td>${item.send}
+            <td>
                 <c:if test="${item.send != null}">
                     ${item.send}
-                </c:if>
-                <c:if test="${item.send == null}">
-                    <input type="button" onclick="location.href='/tasks/send/${item.id}';" value="Akceptuj" />
-                </c:if>
-            </td>
-            <td>${item.user.name}</td>
-            <td>
-                <input type="button" onclick="location.href='/tasks/edit/${item.id}';" value="Edytuj" />
-                <input type="button" onclick="location.href='/tasks/delete/${item.id}';" value="Usun" />
-            </td>
-        </tr>
-    </c:forEach>
-</table>
-<br>
-<form action="add">
-    <input type="submit" value="Nowe zadanie" />
-</form>
-<form action="/home">
-    <input type="submit" value="Powort do strony glownej" />
-</form>
-</body>
-</html>
+                 </c:if>
+                 <c:if test="${item.send == null}">
+                     <input type="button" onclick="location.href='/tasks/send/${item.id}';" value="Akceptuj" />
+                 </c:if>
+             </td>
+             <td>${item.user.name}</td>
+             <td>
+                 <input type="button" onclick="location.href='/tasks/edit/${item.id}';" value="Edytuj" />
+                 <input type="button" onclick="location.href='/tasks/delete/${item.id}';" value="Usun" />
+             </td>
+         </tr>
+     </c:forEach>
+ </table>
+ <br>
+ <form action="add">
+     <input type="submit" value="Nowe zadanie" />
+ </form>
+ <form action="/home">
+     <input type="submit" value="Powort do strony glownej" />
+ </form>
+ </body>
+ </html>

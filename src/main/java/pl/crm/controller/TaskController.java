@@ -1,5 +1,6 @@
 package pl.crm.controller;
 
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -55,12 +56,9 @@ public class TaskController {
         if(result.hasErrors()) {
             return "tasks/add";
         }else {
-            task.setCreated(LocalDateTime.now());
-            task.setLastModified(LocalDateTime.now());
+            task.setCreated(LocalDateTime.now().withSecond(0).withNano(0));
+            task.setLastModified(LocalDateTime.now().withSecond(0).withNano(0));
             taskRepository.save(task);
-            model.addAttribute("tasks", taskRepository.findAll());
-            model.addAttribute("users", userRepository.findAll());
-            model.addAttribute("clients", clientRepository.findAll());
             return "redirect:/tasks/list";
         }
     }
@@ -75,30 +73,30 @@ public class TaskController {
 
     @PostMapping("/edit/{id}")
     public String editTask(@ModelAttribute Task task, @PathVariable Long id, Model model) {
-        task.setLastModified(LocalDateTime.now());
+        task.setLastModified(LocalDateTime.now().withSecond(0).withNano(0));
         taskRepository.save(task);
-        model.addAttribute("tasks", taskRepository.findAll());
         return "redirect:/tasks/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteTask(@PathVariable Long id , Model model) {
         taskRepository.delete(id);
-        model.addAttribute("task", taskRepository.findAll());
         return "redirect:/tasks/list";
     }
 
     @RequestMapping("/send/{id}")
-    public String sendTask(@ModelAttribute Task task, @PathVariable Long id, Model model) {
-
-        model.addAttribute("tasks", taskRepository.findAll());
+    public String sendTask(@PathVariable Long id, Model model) {
+        Task taskSend = taskRepository.findOne(id);
+        taskSend.setSend(LocalDateTime.now().withSecond(0).withNano(0));
+        taskRepository.save(taskSend);
         return "redirect:/tasks/list";
     }
 
-    @RequestMapping("/pay/{id}")
+    @GetMapping("/pay/{id}")
     public String payTask(@PathVariable Long id, Model model) {
-        taskRepository.findOne(id).setPaid(LocalDateTime.now());
-        model.addAttribute("tasks", taskRepository.findAll());
+        Task taskPaid = taskRepository.findOne(id);
+        taskPaid.setPaid(LocalDateTime.now().withSecond(0).withNano(0));
+        taskRepository.save(taskPaid);
         return "redirect:/tasks/list";
     }
 

@@ -42,7 +42,8 @@
     <input type="submit" value="Zapisz">
 
      <form:hidden path="created" />
-
+    <form:hidden path="paid" />
+    <form:hidden path="send" />
  </form:form>
  <form action="/tasks/list">
      <input type="submit" value="Anuluj" />
