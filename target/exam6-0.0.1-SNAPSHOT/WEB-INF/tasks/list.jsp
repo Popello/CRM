@@ -42,8 +42,22 @@
                 <c:if test="${item.status == 2}">
                    Zamowienie
                 </c:if>
-            <td>${item.paid}</td>
-            <td>${item.send}</td>
+
+            <td><c:if test="${item.paid != null}">
+                ${item.paid}
+                </c:if>
+            <c:if test="${item.paid == null}">
+            <input type="button" onclick="location.href='/tasks/pay/${item.id}';" value="Akceptuj" />
+            </c:if>
+        </td>
+            <td>${item.send}
+                <c:if test="${item.send != null}">
+                    ${item.send}
+                </c:if>
+                <c:if test="${item.send == null}">
+                    <input type="button" onclick="location.href='/tasks/send/${item.id}';" value="Akceptuj" />
+                </c:if>
+            </td>
             <td>${item.user.name}</td>
             <td>
                 <input type="button" onclick="location.href='/tasks/edit/${item.id}';" value="Edytuj" />

@@ -42,10 +42,14 @@
                     Pracownik
                 </c:if>
             </td>
+
             <td>
+                <c:if test="${item.category != 0}">
                 <input type="button" onclick="location.href='/users/edit/${item.id}';" value="Edytuj" />
                 <input type="button" onclick="location.href='/users/delete/${item.id}';" value="Usun" />
+                </c:if>
             </td>
+
         </tr>
     </c:forEach>
 </table>

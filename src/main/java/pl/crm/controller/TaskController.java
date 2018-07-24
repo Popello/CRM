@@ -70,17 +70,11 @@ public class TaskController {
         model.addAttribute("task", taskRepository.findOne(id));
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("clients", clientRepository.findAll());
-        System.out.println("___________________________________________");
-        System.out.println(taskRepository.findOne(id).getCreated());
-        System.out.println("___________________________________________");
         return "/tasks/edit";
     }
 
     @PostMapping("/edit/{id}")
     public String editTask(@ModelAttribute Task task, @PathVariable Long id, Model model) {
-        System.out.println("___________________________________________");
-        System.out.println(task.getCreated());
-        System.out.println("_______________________________________");
         task.setLastModified(LocalDateTime.now());
         taskRepository.save(task);
         model.addAttribute("tasks", taskRepository.findAll());
@@ -93,4 +87,19 @@ public class TaskController {
         model.addAttribute("task", taskRepository.findAll());
         return "redirect:/tasks/list";
     }
+
+    @RequestMapping("/send/{id}")
+    public String sendTask(@ModelAttribute Task task, @PathVariable Long id, Model model) {
+
+        model.addAttribute("tasks", taskRepository.findAll());
+        return "redirect:/tasks/list";
+    }
+
+    @RequestMapping("/pay/{id}")
+    public String payTask(@PathVariable Long id, Model model) {
+        taskRepository.findOne(id).setPaid(LocalDateTime.now());
+        model.addAttribute("tasks", taskRepository.findAll());
+        return "redirect:/tasks/list";
+    }
+
 }

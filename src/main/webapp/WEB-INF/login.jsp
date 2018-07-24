@@ -40,8 +40,8 @@
         <input type="submit" value="Zaloguj">
     </form>
 </div>
-
 <div>
+    <c:if test="${param.error != null}">
     <h3>Rejestracja</h3>
     <form:form method="post" action="/register" modelAttribute="user">
 
@@ -57,15 +57,14 @@
         <br>
         <form:select path="category">
             <form:option value="3" label="Pracownik" />
-            <form:option value="2" label="Manager" />
-            <form:option value="1" label="Boss" />
         </form:select>
         <br>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <br>
         <input type="submit" value="Zarejestruj">
 
     </form:form>
-
+    </c:if>
 </div>
 </body>
 </html>

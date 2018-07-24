@@ -22,9 +22,6 @@
     Nazwa<form:input path="name" />
     <form:errors path="name" cssClass="error"/>
     <br>
-    <form:hidden path="password" />
-    <form:errors path="password" cssClass="error"/>
-    <br>
     Imie<form:input path="firstName" />
     <form:errors path="firstName" cssClass="error"/>
     <br>
@@ -38,6 +35,8 @@
     <form:option value="3" label="Pracownik" />
     <form:option value="2" label="Manager" />
     <form:option value="1" label="Boss" />
+    <br>
+    <form:hidden path="password" />
 </form:select>
     <br>
     <input type="submit" value="Zapisz">
