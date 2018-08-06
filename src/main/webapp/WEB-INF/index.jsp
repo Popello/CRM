@@ -16,6 +16,9 @@
 </head>
 
 <body>
+Witaj ${username}
+<br>
+<a href="/logout">Wyloguj</a>
 <ul>
     <h1><li><a href="/users/list">Uzytkownicy</a></li></h1>
     <h1><li><a href="/tasks/list">Zadania</a></li></h1>
