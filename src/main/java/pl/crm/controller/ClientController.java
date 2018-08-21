@@ -13,6 +13,7 @@ import pl.crm.entity.Client;
 import pl.crm.repository.ClientRepository;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @Scope(value = WebApplicationContext.SCOPE_SESSION,
@@ -32,8 +33,9 @@ public class ClientController {
 
 
     @GetMapping("/list")
-    public String getAllClientsGet(Model model) {
+    public String getAllClientsGet(Model model, Principal principal) {
         model.addAttribute("clients", clientRepository.findAll());
+        model.addAttribute("username", principal.getName());
         return "clients/list";
     }
 

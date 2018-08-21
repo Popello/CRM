@@ -15,6 +15,7 @@ import pl.crm.repository.TaskRepository;
 import pl.crm.repository.UserRepository;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.time.LocalDateTime;
 
 @Controller
@@ -38,8 +39,9 @@ public class TaskController {
 
 
     @GetMapping("/list")
-    public String getAllTaskssGet(Model model) {
+    public String getAllTaskssGet(Model model, Principal principal) {
         model.addAttribute("tasks", taskRepository.findAll());
+        model.addAttribute("username", principal.getName());
         return "tasks/list";
     }
 

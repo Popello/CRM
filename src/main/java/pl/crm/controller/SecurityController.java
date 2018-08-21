@@ -29,23 +29,12 @@ public class SecurityController {
     public String login(Model model, HttpSession session) {
         if (SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
                 && !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
-            return "redirect:/home";
+            return "redirect:/";
         }
         model.addAttribute("user", new User());
         session.setAttribute("dateTimeFormatter", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
         return "login";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@ModelAttribute User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return "redirect:/login";
-    }
-    //testowy principal
-    @RequestMapping(value = "/username", method = RequestMethod.GET)
-    @ResponseBody
-    public String currentUserName(Principal principal) {
-        return principal.getName();
-    }
+
 }

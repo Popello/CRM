@@ -30,7 +30,6 @@ public class Client {
     private String adress;
 
     @Column(unique = true)
-    @NotBlank
     private long nip;
 
     @Column

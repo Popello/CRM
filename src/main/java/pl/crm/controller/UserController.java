@@ -13,6 +13,7 @@ import pl.crm.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @Scope(value = WebApplicationContext.SCOPE_SESSION,
@@ -33,8 +34,9 @@ public class UserController {
 
 
     @GetMapping("/list")
-    public String getAllUsersGet(Model model) {
+    public String getAllUsersGet(Model model, Principal principal) {
         model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("username", principal.getName());
         return "users/list";
     }
 
