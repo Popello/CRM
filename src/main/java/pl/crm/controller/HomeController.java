@@ -11,7 +11,7 @@ import java.security.Principal;
 @RequestMapping("/")
 public class HomeController {
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String index(Model model, Principal  principal) {
         model.addAttribute("username", principal.getName());
         return "index";

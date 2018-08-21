@@ -28,12 +28,12 @@
 <div class="loginContainer container">
 
         <c:if test="${param.error != null}">
-        <div class="alert alert-danger">
+        <div class="alert alert-danger text-center">
             <h4><small>Błędne Dane Logowania</small></h4>
         </div>
         </c:if>
     <c:if test="${param.loggedout != null}">
-        <div class="alert alert-info">
+        <div class="alert alert-info text-center">
             <h4><small>Wylogowano z Konta</small></h4>
         </div>
     </c:if>

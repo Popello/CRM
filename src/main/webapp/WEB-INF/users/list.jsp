@@ -57,7 +57,7 @@
 <form action="add">
     <input type="submit" value="Dodaj Uzytkownika" />
 </form>
-<form action="/home">
+<form action="/">
     <input type="submit" value="Powort do strony glownej" />
 </form>
 </body>
