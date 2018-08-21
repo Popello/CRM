@@ -7,64 +7,43 @@
 --%>
 
 <html>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %><html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
+
 <head>
     <title>Login</title>
-    <style>
-        .error {
-            color: red
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
+
 <body>
-<body>
-<div>
-    <c:if test="${param.loggedout != null}">
-        <h3>Wylogowano z Konta</h3>
-    </c:if>
-</div>
-<div>
-    <h3>Logowanie</h3>
-    <div>
+
+
+<div class="loginContainer container">
+
         <c:if test="${param.error != null}">
-            <h3>Błędne Dane Logowania</h3>
+        <div class="alert alert-danger">
+            <h4><small>Błędne Dane Logowania</small></h4>
+        </div>
         </c:if>
-    </div>
-    <form method="post" action="/login">
-        <input type="text" name="name" placeholder="Wprowadź Nazwę Użytkownika">
-        <input type="password" name="password" placeholder="Wprowadź Hasło">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <input type="submit" value="Zaloguj">
-    </form>
-</div>
-<div>
-    <c:if test="${param.error != null}">
-    <h3>Rejestracja</h3>
-    <form:form method="post" action="/register" modelAttribute="user">
-
-        <form:input path="name" placeholder="Wprowadź Nazwę Użytkownika"/>
-        <br>
-        <form:input path="email" placeholder="Wprowadź Email"/>
-        <br>
-        <form:input type="password" path="password" placeholder="Wprowadź Hasło"/>
-        <br>
-        <form:input path="firstName" placeholder="Wprowadź Imie"/>
-        <br>
-        <form:input path="lastName" placeholder="Wprowadź Nazwisko"/>
-        <br>
-        <form:select path="category">
-            <form:option value="3" label="Pracownik" />
-        </form:select>
-        <br>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <br>
-        <input type="submit" value="Zarejestruj">
-
-    </form:form>
+    <c:if test="${param.loggedout != null}">
+        <div class="alert alert-info">
+            <h4><small>Wylogowano z Konta</small></h4>
+        </div>
     </c:if>
+    <h3>Logowanie</h3>
+    <form class="form-horizontal" method="post" action="/login">
+        <input type="text" name="name" class="form-control" placeholder="Nazwa Użytkownika">
+        <input type="password" name="password" class="form-control" placeholder="Hasło">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <button type="submit" class="btn btn-dark">Zaloguj</button>
+    </form>
 </div>
 </body>
 </html>
